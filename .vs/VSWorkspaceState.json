@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\proyecto-url",
+    "\\proyecto-url\\Data",
+    "\\proyecto-url\\Data\\Implementations",
+    "\\proyecto-url\\Data\\Interfaces",
+    "\\proyecto-url\\Entities",
+    "\\proyecto-url\\Services"
+  ],
+  "SelectedNode": "\\proyecto-url\\Data\\Interfaces\\IUserService.cs",
+  "PreviewInSolutionExplorer": false
+}

@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+
 namespace proyecto_url
 {
     public class Program
@@ -12,8 +14,12 @@ namespace proyecto_url
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<UrlShorterContext>(dbContextOptions => dbContextOptions.UseSqlite(
+    builder.Configuration["ConnectionStrings:proyecto-urlDBConnectionString"])); //inyección de dependencia
 
             var app = builder.Build();
+
+
 
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
