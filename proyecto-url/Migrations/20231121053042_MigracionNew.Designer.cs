@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using proyecto_url;
 
@@ -10,9 +11,10 @@ using proyecto_url;
 namespace proyecto_url.Migrations
 {
     [DbContext(typeof(UrlShorterContext))]
-    partial class UrlShorterContextModelSnapshot : ModelSnapshot
+    [Migration("20231121053042_MigracionNew")]
+    partial class MigracionNew
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.24");

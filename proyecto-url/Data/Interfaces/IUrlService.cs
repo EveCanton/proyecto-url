@@ -7,6 +7,9 @@ namespace proyecto_url.Data.Interfaces
     {
             Url Create(CreateAndUpdateUrlDTO dto);
             //método para crear una nueva URL
+
+            void AddUrl(Url url);
+            void SaveChanges();
             Url GetUrlById(int urlId);
             //obtener una url específica según su ID
             Url GetOriginalUrl (string shortUrl);

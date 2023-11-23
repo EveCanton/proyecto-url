@@ -4,6 +4,8 @@ using proyecto_url.Entities;
 using proyecto_url.Models;
 using proyecto_url.Data.Implementations;
 
+using proyecto_url.Helpers;
+
 namespace proyecto_url.Controllers
 {
 
@@ -13,9 +15,9 @@ namespace proyecto_url.Controllers
     {
         private readonly IUrlService _urlService;
 
-        public UrlController(IUrlService urlService)
+        public UrlController(IUrlService urlRepository)
         {
-            _urlService = urlService;
+            _urlService = urlRepository;
         }
 
         [HttpGet("{urlId}")]
@@ -36,13 +38,32 @@ namespace proyecto_url.Controllers
             var urls = _urlService.GetAllUrls();
             return Ok(urls);
         }
-
         [HttpPost]
-        public ActionResult<Url> CreateUrl([FromBody] CreateAndUpdateUrlDTO dto)
+        [ProducesResponseType(400)]
+        public IActionResult CreateShortUrl([FromBody] CreateAndUpdateUrlDTO dto)
         {
-            var newUrl = _urlService.Create(dto);
-            return Ok(newUrl); // Devuelve el DTO creado o podrías devolver la URL creada
+            if (dto == null)
+            {
+                return BadRequest();
+            }
+            CreateShortUrl ShortUrl = new CreateShortUrl();
+            string shortUrl = ShortUrl.OriginateShortUrl();
+
+            // creación url
+            Url urlEntity = new Url
+            {
+                LongUrl = dto.LongUrl,
+                ShortUrl = shortUrl,
+                CategoryId = dto.CategoryId,
+                UserId = dto.UserId
+            };
+
+           _urlService.AddUrl(urlEntity); //añadimos a la base de datos el url
+           _urlService.SaveChanges();
+            
+            return Created($"api/url/{shortUrl}", urlEntity);// respuesta exitosa
         }
+
 
         [HttpPut("{urlId}")]
         public IActionResult UpdateUrl(int urlId, [FromBody] CreateAndUpdateUrlDTO dto)
@@ -73,14 +94,15 @@ namespace proyecto_url.Controllers
         [HttpGet("redirect/{shortUrl}")]
         public IActionResult RedirectShortenedUrl(string shortUrl)
         {
-            var originalUrl = _urlService.GetOriginalUrl(shortUrl);
+            Url originalUrl = _urlService.GetOriginalUrl(shortUrl);
+
             if (originalUrl != null)
             {
                 // Incrementa el contador de visitas
                 _urlService.IncrementVisitCount(originalUrl.Id);
-
+                var uri = new Uri(originalUrl.LongUrl);
+                return Redirect(uri.AbsoluteUri);
                 // Redirige a la URL original
-                return Redirect(originalUrl.LongUrl);
             }
 
             return NotFound(); // Manejo si no se encuentra la URL corta

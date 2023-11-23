@@ -30,6 +30,20 @@ namespace proyecto_url
                 .HasOne(url => url.Category)
                 .WithMany()
                 .HasForeignKey(url => url.CategoryId);
+
+            User Mabel = new User()
+            {
+                Id = 2,
+                Name = "Mabel Enrique",
+                Email = "mabelucita@gmail.com",
+                Password = "lamismadesiempre",
+                UserName = "mabeluci",
+            };
+
+            modelBuilder.Entity<User>().HasData(
+               Mabel);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

@@ -24,6 +24,7 @@ namespace proyecto_url.Entities
         public User User { get; set; }
 
         public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; } //relación a una sola categoría
         
     }

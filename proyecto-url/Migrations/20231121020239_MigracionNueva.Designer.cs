@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using proyecto_url;
 
@@ -10,9 +11,10 @@ using proyecto_url;
 namespace proyecto_url.Migrations
 {
     [DbContext(typeof(UrlShorterContext))]
-    partial class UrlShorterContextModelSnapshot : ModelSnapshot
+    [Migration("20231121020239_MigracionNueva")]
+    partial class MigracionNueva
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.24");
@@ -98,16 +100,6 @@ namespace proyecto_url.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 2,
-                            Email = "mabelucita@gmail.com",
-                            Name = "Mabel Enrique",
-                            Password = "lamismadesiempre",
-                            UserName = "mabeluci"
-                        });
                 });
 
             modelBuilder.Entity("proyecto_url.Entities.Url", b =>

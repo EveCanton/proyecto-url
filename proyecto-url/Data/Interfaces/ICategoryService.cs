@@ -6,9 +6,10 @@ namespace proyecto_url.Data.Interfaces;
 
 public interface ICategoryService
 {
+        Category Create(CreateAndUpdateCategoryDTO dto);
         Category GetCategoryById(int categoryId);
         List<Category> GetAllCategories();
-        void Create(CreateAndUpdateCategoryDTO dto);
+        
         void Update(CreateAndUpdateCategoryDTO dto, int CategoryId);
         void DeleteCategory(int categoryId);
 }

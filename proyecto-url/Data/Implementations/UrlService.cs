@@ -24,7 +24,10 @@ namespace proyecto_url.Data.Implementations
             Url newUrl = new Url()
             {
                 LongUrl = dto.LongUrl,
-                ShortUrl = dto.ShortUrl
+                ShortUrl = dto.ShortUrl,
+                UserId = dto.UserId,
+                CategoryId = dto.CategoryId
+
             };
             _context.Urls.Add(newUrl);
             _context.SaveChanges();
@@ -56,6 +59,7 @@ namespace proyecto_url.Data.Implementations
             _context.SaveChanges();
         }
 
+
         public void DeleteUrl(int urlId)
         {
             var url = _context.Urls.Find(urlId);
@@ -66,6 +70,16 @@ namespace proyecto_url.Data.Implementations
             }
         }
 
+        public void AddUrl(Url url)
+        {
+            _context.Urls.Add(url);
+        }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
+
         public void IncrementVisitCount(int urlId)
         {
             var url = _context.Urls.Find(urlId);
@@ -74,6 +88,8 @@ namespace proyecto_url.Data.Implementations
                 url.VisitsCount++;
                 _context.SaveChanges();
             }
+
+
         }
     }
 }

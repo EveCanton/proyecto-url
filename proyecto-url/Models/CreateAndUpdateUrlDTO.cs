@@ -3,8 +3,9 @@
     public class CreateAndUpdateUrlDTO
     {
         public string LongUrl { get; set; }
-        public string ShortUrl { get; set; }
+        public string? ShortUrl { get; set; }
         public int UserId { get; set; }
+        public int CategoryId { get; set; }
 
 
     }

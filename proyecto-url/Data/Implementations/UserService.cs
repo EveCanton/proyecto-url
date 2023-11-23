@@ -40,17 +40,20 @@ namespace proyecto_url.Data.Implementations
             return _context.Users.ToList();
         }
         // Utiliza el método ToList del contexto para obtener todos los registros de usuarios.
-        public void Create(CreateAndUpdateUserDTO dto)
+        public User Create(CreateAndUpdateUserDTO dto)
         {
             User newUser = new User()
             {
                 Name = dto.Name,
                 Password = dto.Password,
-                UserName = dto.UserName
+                UserName = dto.UserName,
+                Email = dto.Email
             };
       
             _context.Users.Add(newUser);
             _context.SaveChanges();
+
+            return newUser;
         
     }
         //Este método crea un nuevo usuario. Agrega el usuario al conjunto de usuarios en el contexto

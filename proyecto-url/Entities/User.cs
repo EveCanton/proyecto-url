@@ -17,6 +17,7 @@ namespace proyecto_url.Entities
         [Required]
         [StringLength(50)]
         public string Password { get; set; }
+        [Required]
 
         public string Email { get; set; }
 

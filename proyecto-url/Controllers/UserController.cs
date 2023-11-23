@@ -52,7 +52,7 @@ namespace proyecto_url.Controllers
         public ActionResult<User> CreateUser([FromBody] CreateAndUpdateUserDTO dto)
         {
             _userService.Create(dto);
-            return Ok(dto); // Devuelve el DTO creado o podrías devolver el usuario creado
+            return Ok(dto); // Devuelve el DTO creado
         }
 
         [HttpPut("{userId}")]

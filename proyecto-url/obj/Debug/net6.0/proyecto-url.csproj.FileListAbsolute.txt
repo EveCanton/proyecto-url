@@ -71,3 +71,6 @@ C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-ur
 C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-url\proyecto-url\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
 C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-url\proyecto-url\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-url\proyecto-url\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-url\proyecto-url\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-url\proyecto-url\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\Usuario\Documents\PROGRAMACIÓN 2023\Programación Web\back\proyecto-url\proyecto-url\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll

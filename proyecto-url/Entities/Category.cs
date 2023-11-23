@@ -9,7 +9,6 @@ namespace proyecto_url.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public string Name { get; set; }
-
         public List<Url> Urls { get; set; } //relación a muchos Urls
     }
 

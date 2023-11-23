@@ -25,14 +25,16 @@ namespace proyecto_url.Data.Implementations
             return _context.Categories.ToList();
         }
 
-        public void Create(CreateAndUpdateCategoryDTO dto)
+        public Category Create(CreateAndUpdateCategoryDTO dto)
         {
             Category newCategory = new Category()
             {
-                Name = dto.Name
+                Name = dto.Name,
             };
             _context.Categories.Add(newCategory);
             _context.SaveChanges();
+
+            return newCategory;
         }
 
         public void Update(CreateAndUpdateCategoryDTO dto, int CategoryId)

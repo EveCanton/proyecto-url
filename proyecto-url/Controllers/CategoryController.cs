@@ -39,8 +39,8 @@ namespace proyecto_url.Controllers
         [HttpPost]
         public ActionResult<Category> CreateCategory([FromBody] CreateAndUpdateCategoryDTO dto)
         {
-            _categoryService.Create(dto);
-            return Ok(dto); // Devuelve el DTO creado o podrías devolver la categoría creada
+            var newCategory = _categoryService.Create(dto);
+            return Ok(newCategory); // Devuelve el DTO creado o podrías devolver la categoría creada
         }
 
         [HttpPut("{categoryId}")]
